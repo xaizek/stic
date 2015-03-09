@@ -1,4 +1,4 @@
-#include "seatest_tests.h"
+#include "stic_tests.h"
 
 void test_assert_n_array_equal()
 {
@@ -53,7 +53,7 @@ void test_assert_false()
   assert_test_fails(assert_false(1));
 }
 
-void test_fixture_seatest(void)
+void test_fixture_stic(void)
 {
   test_fixture_start();      
   run_test(test_assert_true);   
@@ -67,7 +67,7 @@ void test_fixture_seatest(void)
 
 void all_tests(void)
 {
-  test_fixture_seatest();   
+  test_fixture_stic();   
 }
 
 int main(int argc, char** argv)

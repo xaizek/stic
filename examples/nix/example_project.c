@@ -1,4 +1,4 @@
-#include "seatest.h"
+#include "stic.h"
 
 void test_fixture_one( void );
 void test_fixture_two( void );
@@ -22,7 +22,7 @@ void my_suite_teardown( void )
 
 int main( int argc, char** argv )
 {
-	return seatest_testrunner(argc, argv, all_tests, my_suite_setup, my_suite_teardown);	
+	return stic_testrunner(argc, argv, all_tests, my_suite_setup, my_suite_teardown);	
 }
 
 /*************************************************************************************************************************************************************/
@@ -34,7 +34,7 @@ Use this if you don't have any global setup/teardown...
 */
 int main_no_setup_or_teardown( int argc, char** argv )
 {
-	return seatest_testrunner(argc, argv, all_tests, NULL, NULL);	
+	return stic_testrunner(argc, argv, all_tests, NULL, NULL);	
 }
 
 /*

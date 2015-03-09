@@ -1,17 +1,30 @@
-CFLAGS = @CFLAGS@ @DEFS@ -DSEATEST_INTERNAL_TESTS
+CFLAGS = @CFLAGS@ @DEFS@ -DSTIC_INTERNAL_TESTS
 CC = @CC@
 MKDIR_P = @MKDIR_P@
 
-SEATEST_TESTS = src/seatest.c tests/seatest_tests.c
+STIC_TESTS = src/stic.c tests/stic_tests.c
+STIC_TESTS_OBJ = $(STIC_TESTS:.c=.o)
 
 RM_F = rm -f
 
-all: clean seatest_tests
+pos = $(strip $(eval T := ) \
+              $(eval i := 0) \
+              $(foreach elem, $1, \
+                        $(if $(filter $2,$(elem)), \
+                             $(eval i := $(words $T)), \
+                             $(eval T := $T $(elem)))) \
+              $i)
 
-seatest_tests:
+all: clean stic_tests
+
+stic_tests: $(STIC_TESTS_OBJ)
 	$(MKDIR_P) bin
-	$(CC) $(SEATEST_TESTS) $(CFLAGS) -o bin/seatest_tests
-	bin/seatest_tests
+	$(CC) $^ $(CFLAGS) -o bin/stic_tests
+	bin/stic_tests
+
+%.o: %.c $(dir %.c)/.
+	$(CC) -c $(CFLAGS) -o $@ -DTESTID=$(call pos, $(STIC_TESTS_OBJ), $@) \
+	                         -DMAXTESTID=$(words $(STIC_TESTS_OBJ)) $<
 
 clean:
 	$(RM_F) src/*.o

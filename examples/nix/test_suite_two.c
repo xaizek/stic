@@ -1,4 +1,4 @@
-#include "seatest.h"
+#include "stic.h"
 
 void test_asserting()
 {
