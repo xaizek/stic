@@ -1,0 +1,11 @@
+# autotools generated files
+/Makefile
+/config.log
+/config.status
+
+# output files
+*.o
+
+# output binaries
+/bin/stic_tests
+/examples/nix/example
