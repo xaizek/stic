@@ -116,11 +116,11 @@ void seatest_simple_test_result_log(int passed, char* reason, const char* functi
 	
 		if(seatest_machine_readable)
 		{
-			printf("%s%s,%s,%u,%s\r\n", seatest_magic_marker, seatest_current_fixture_path, function, line, reason );
+			printf("%s%s,%s,%u,%s\n", seatest_magic_marker, seatest_current_fixture_path, function, line, reason );
 		}
 		else
 		{
-			printf("%-30s Line %-5d %s\r\n", function, line, reason );
+			printf("%-30s Line %-5d %s\n", function, line, reason );
 		}
 		sea_tests_failed++;
 	}
@@ -130,11 +130,11 @@ void seatest_simple_test_result_log(int passed, char* reason, const char* functi
 		{
 			if(seatest_machine_readable)
 			{
-				printf("%s%s,%s,%u,Passed\r\n", seatest_magic_marker, seatest_current_fixture_path, function, line );
+				printf("%s%s,%s,%u,Passed\n", seatest_magic_marker, seatest_current_fixture_path, function, line );
 			}
 			else
 			{
-				printf("%-30s Line %-5d Passed\r\n", function, line);
+				printf("%-30s Line %-5d Passed\n", function, line);
 			}			
 		}
 		sea_tests_passed++;
@@ -257,7 +257,7 @@ void seatest_header_printer(char* s, int length, char f)
 	if(l==0) printf("%c%c", f, f);
 	else printf(" %s ", s);
 	for(i = (d+l+2); i<length; i++) printf("%c",f);
-	printf("\r\n");
+	printf("\n");
 }
 
 
@@ -277,7 +277,7 @@ void seatest_test_fixture_end()
 	char s[SEATEST_PRINT_BUFFER_SIZE];
 	sprintf(s, "%d run  %d failed", sea_tests_run-seatest_fixture_tests_run, sea_tests_failed-seatest_fixture_tests_failed);
 	seatest_header_printer(s, seatest_screen_width, ' ');
-	printf("\r\n");
+	printf("\n");
 }
 
 static char* seatest_fixture_filter = 0;
@@ -303,7 +303,7 @@ void set_magic_marker(char* marker)
 void seatest_display_test(char* fixture_name, char* test_name)
 {
 	if(test_name == NULL) return;
-	printf("%s,%s\r\n", fixture_name, test_name);
+	printf("%s,%s\n", fixture_name, test_name);
 }
 
 int seatest_should_run( char* fixture, char* test)
@@ -337,9 +337,9 @@ int run_tests(seatest_void_void tests)
 
 	if(seatest_is_display_only() || seatest_machine_readable) return 1;
 	sprintf(version, "SEATEST v%s", SEATEST_VERSION);
-	printf("\r\n\r\n");	 
+	printf("\n\n");	 
 	seatest_header_printer(version, seatest_screen_width, '=');
-	printf("\r\n");	 
+	printf("\n");	 
 	if (sea_tests_failed > 0) {
 		seatest_header_printer("Failed", seatest_screen_width, ' ');
 	}
@@ -350,7 +350,7 @@ int run_tests(seatest_void_void tests)
 	seatest_header_printer(s, seatest_screen_width, ' ');
 	sprintf(s,"in %lu ms",end - start);
 	seatest_header_printer(s, seatest_screen_width, ' ');
-	printf("\r\n");	 
+	printf("\n");	 
 	seatest_header_printer("", seatest_screen_width, '=');
 
 	return sea_tests_failed == 0;
@@ -359,18 +359,18 @@ int run_tests(seatest_void_void tests)
 
 void seatest_show_help( void )
 {
-	printf("Usage: [-t <testname>] [-f <fixturename>] [-d] [help] [-v] [-m] [-k <marker>\r\n");
-	printf("Flags:\r\n");
-	printf("\thelp:\twill display this help\r\n");
-	printf("\t-t:\twill only run tests that match <testname>\r\n");
-	printf("\t-f:\twill only run fixtures that match <fixturename>\r\n");
-	printf("\t-d:\twill just display test names and fixtures without\r\n");
-	printf("\t-d:\trunning the test\r\n");
-	printf("\t-v:\twill print a more verbose version of the test run\r\n");
-	printf("\t-m:\twill print a machine readable format of the test run, ie :- \r\n");
-	printf("\t   \t<textfixture>,<testname>,<linenumber>,<testresult><EOL>\r\n");
-	printf("\t-k:\twill prepend <marker> before machine readable output \r\n");
-	printf("\t   \t<marker> cannot start with a '-'\r\n");
+	printf("Usage: [-t <testname>] [-f <fixturename>] [-d] [help] [-v] [-m] [-k <marker>\n");
+	printf("Flags:\n");
+	printf("\thelp:\twill display this help\n");
+	printf("\t-t:\twill only run tests that match <testname>\n");
+	printf("\t-f:\twill only run fixtures that match <fixturename>\n");
+	printf("\t-d:\twill just display test names and fixtures without\n");
+	printf("\t-d:\trunning the test\n");
+	printf("\t-v:\twill print a more verbose version of the test run\n");
+	printf("\t-m:\twill print a machine readable format of the test run, ie :- \n");
+	printf("\t   \t<textfixture>,<testname>,<linenumber>,<testresult><EOL>\n");
+	printf("\t-k:\twill prepend <marker> before machine readable output \n");
+	printf("\t   \t<marker> cannot start with a '-'\n");
 }
 
 
@@ -387,7 +387,7 @@ int seatest_parse_commandline_option_with_value(seatest_testrunner_t* runner, in
 	{
 		if(!seatest_commandline_has_value_after(runner, arg))
 		{
-			printf("Error: The %s option expects to be followed by a value\r\n", option);
+			printf("Error: The %s option expects to be followed by a value\n", option);
 			runner->action = SEATEST_DO_ABORT;
 			return 0;
 		}		
