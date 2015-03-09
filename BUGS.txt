@@ -1,0 +1,5 @@
+* VS support is currently broken due to lack of C99 support there.
+
+* Measuring of time is disabled on *nix.
+
+* Fixture name detection when path element separator is forward slash is broken.

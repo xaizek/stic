@@ -1,0 +1,11 @@
+* Make error messages vim-friendly (special flag).
+
+* Better command-line parameter names and parsing:
+  - Don't silently ignore unsupported options.
+  - At least -h for help.
+
+* Add more useful asserts:
+  - assert_string_empty()
+
+* Remember test name for asserts and error messages so nested functions don't
+  mess up the output.
