@@ -1,4 +1,5 @@
 # autotools generated files
+/autom4te.cache/
 /Makefile
 /config.log
 /config.status
