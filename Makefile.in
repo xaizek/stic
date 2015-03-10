@@ -3,7 +3,7 @@ CC = @CC@
 MKDIR_P = @MKDIR_P@
 
 STIC_TESTS = src/stic.c tests/stic_tests.c
-STIC_TESTS_OBJ = $(STIC_TESTS:.c=.o)
+STIC_TESTS_OBJ = $(addprefix bin/,$(notdir $(STIC_TESTS:.c=.o)))
 
 RM_F = rm -f
 
@@ -17,14 +17,22 @@ pos = $(strip $(eval T := ) \
 
 all: clean stic_tests
 
-stic_tests: $(STIC_TESTS_OBJ)
-	$(MKDIR_P) bin
-	$(CC) $^ $(CFLAGS) -o bin/stic_tests
-	bin/stic_tests
+stic_tests: bin/stic_tests
+	@./$<
 
-%.o: %.c $(dir %.c)/.
+bin/stic_tests: $(STIC_TESTS_OBJ) | bin
+	$(CC) $^ $(CFLAGS) -o bin/stic_tests
+
+bin:
+	$(MKDIR_P) $@
+
+bin/%.o: src/%.c tests/. | bin
+	$(CC) -c $(CFLAGS) -o $@ -DTESTID=$(call pos, $(STIC_TESTS_OBJ), $@) \
+	                         -DMAXTESTID=$(words $(STIC_TESTS_OBJ)) $<
+
+bin/%.o: tests/%.c tests/. | bin
 	$(CC) -c $(CFLAGS) -o $@ -DTESTID=$(call pos, $(STIC_TESTS_OBJ), $@) \
 	                         -DMAXTESTID=$(words $(STIC_TESTS_OBJ)) $<
 
 clean:
-	$(RM_F) src/*.o
+	$(RM_F) bin/*.o
