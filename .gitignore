@@ -9,4 +9,5 @@
 
 # output binaries
 /bin/stic_tests
-/examples/nix/example
+/examples/nix/auto-registration/example
+/examples/nix/manual-registration/example
