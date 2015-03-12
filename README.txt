@@ -1,4 +1,4 @@
-STIC -- Simple Tests In C
+Stic -- Simple Tests In C
 2010 -- 2015 (based on SeaTest)
 
 Last Updated: 10 March, 2015
@@ -31,7 +31,7 @@ License
 
     First, license in case of tests doesn't matter that much, because they are
     not distributed and most licensing problems arise from software
-    distribution.  The author prefers copy-left licenses, so STIC additions
+    distribution.  The author prefers copy-left licenses, so Stic additions
     are under GPL, while original SeaTest code is under MIT.  Again,
     effectively it doesn't really matter whether it's copy-left license or not
     for testing frameworks, because tests are not distributed, especially in
