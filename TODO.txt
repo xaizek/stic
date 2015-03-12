@@ -11,3 +11,5 @@
   mess up the output.
 
 * Convert all files in the repository to *nix line endings.
+
+* Quiet mode: print nothing, but errors.
