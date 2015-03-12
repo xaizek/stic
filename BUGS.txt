@@ -1,3 +1,1 @@
-* Measuring of time is disabled on *nix.
-
 * Fixture name detection when path element separator is forward slash is broken.
