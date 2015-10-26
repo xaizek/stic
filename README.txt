@@ -12,7 +12,7 @@ Brief Description
 
     Additions made to SeaTest are not upstreamed mainly because automatic
     test registration seems to go against goals outlined on SeaTest home
-    page: https://code.google.com/p/seatest/
+    page: https://github.com/keithn/seatest
 
 Usage
 
