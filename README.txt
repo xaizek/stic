@@ -29,10 +29,4 @@ State
 
 License
 
-    First, license in case of tests doesn't matter that much, because they are
-    not distributed and most licensing problems arise from software
-    distribution.  The author prefers copy-left licenses, so Stic additions
-    are under GPL, while original SeaTest code is under MIT.  Again,
-    effectively it doesn't really matter whether it's copy-left license or not
-    for testing frameworks, because tests are not distributed, especially in
-    binary form.
+    MIT
