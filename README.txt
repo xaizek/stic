@@ -1,8 +1,8 @@
 Stic -- Simple Tests In C
-2010 -- 2016 (based on SeaTest)
+2010 -- 2018 (based on SeaTest)
 
-This file last updated: 13 July, 2017
-Version: 0.5.2
+This file last updated: 15 November, 2018
+Version: 0.6
 
 Brief Description
 
