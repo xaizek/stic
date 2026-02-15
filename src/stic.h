@@ -183,10 +183,10 @@ struct stic_test_data
 
 #ifdef STIC_C99
 
-# define IF(...) .p = __VA_ARGS__,
+# define IF(...) .p = __VA_ARGS__
 
 /* Specifies number of times to repeat the test as an integer (1 by default). */
-# define REPEAT(...) .C = 1, .c = (__VA_ARGS__),
+# define REPEAT(...) .C = 1, .c = (__VA_ARGS__)
 
 /* Iteration number of the test (0..<repeat number - 1>) or 0.  To be used only
  * in test body. */
